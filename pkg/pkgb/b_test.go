@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/nunnatsa/issue/pkg/pkge"
+	"github.com/nunnatsa/issue/pkg/pkgd"
 )
 
 func TestB(t *testing.T) {
@@ -20,6 +20,6 @@ var _ = Describe("test package B", func() {
 	})
 
 	It("E should work", func() {
-		Expect(pkge.E()).To(Succeed())
+		Expect(pkgd.D()).To(Succeed())
 	})
 })

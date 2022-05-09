@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nunnatsa/issue/pkg/pkge"
+	"github.com/nunnatsa/issue/pkg/pkgd"
 )
 
 func C() error {
 	fmt.Println("I'm C")
 	time.Sleep(time.Second)
-	return pkge.E()
+	return pkgd.D()
 }

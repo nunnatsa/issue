@@ -1,13 +1,13 @@
 package pkgc
 
 import (
-	"github.com/nunnatsa/issue/cmd/cmdb"
 	"testing"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/nunnatsa/issue/pkg/pkge"
+	"github.com/nunnatsa/issue/cmd/cmdb"
+	"github.com/nunnatsa/issue/pkg/pkgd"
 )
 
 func TestC(t *testing.T) {
@@ -21,7 +21,7 @@ var _ = Describe("test package C", func() {
 	})
 
 	It("E should work", func() {
-		Expect(pkge.E()).To(Succeed())
+		Expect(pkgd.D()).To(Succeed())
 		Expect(cmdb.B())
 	})
 })
