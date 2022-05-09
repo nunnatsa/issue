@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Sanity Checks
+
+# Controls when the action will run.
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  test:
+    name: Sanity Checks
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-go@v2
+        with:
+         go-version: '1.17' # The Go version to download (if necessary) and use.
+
+      - name: go unit tests
+        run: go test ./...
+
+      - name: setup ginkgo
+        run: go install github.com/onsi/ginkgo/v2/ginkgo@latest
+      - name: ginkgo unit tests
+        run: |
+          go clean -testcache
+          ginkgo run -r .
